@@ -20,7 +20,7 @@ RUN CGO_ENABLED=1 GOOS=linux GOARCH=amd64 go install -a .
 
 #In this last stage, we start from a fresh Alpine image, to reduce the image size and not ship the Go compiler in our production artifacts.
 FROM alpine AS final-build
-RUN apk add --no-cache tzdata ca-certificates
+RUN apk add --no-cache tzdata ca-certificates busybox-extras
 
 EXPOSE 80
 
